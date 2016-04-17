@@ -8,7 +8,7 @@ def is_prime(n: int) -> bool:
 
     """
     Miller-Rabin primality test.
-    This code is an adaptation of from https://rosettacode.org/wiki/Miller%E2%80%93Rabin_primality_test#Python
+    This code was adapted from https://rosettacode.org/wiki/Miller%E2%80%93Rabin_primality_test#Python
     :param n: integer
     :return: True if n is probably a prime number, False if it is not
     """
@@ -34,21 +34,7 @@ def is_prime(n: int) -> bool:
                 return False
         return True
 
-    if n < 1373653:
-        return not any(try_composite(a) for a in (2, 3))
-    if n < 25326001:
-        return not any(try_composite(a) for a in (2, 3, 5))
-    if n < 118670087467:
-        if n == 3215031751:
-            return False
-        return not any(try_composite(a) for a in (2, 3, 5, 7))
-    if n < 2152302898747:
-        return not any(try_composite(a) for a in (2, 3, 5, 7, 11))
-    if n < 3474749660383:
-        return not any(try_composite(a) for a in (2, 3, 5, 7, 11, 13))
-    if n < 341550071728321:
-        return not any(try_composite(a) for a in (2, 3, 5, 7, 11, 13, 17))
-    return not any(try_composite(a)for a in __known_primes[:16])
+    return not any(try_composite(a) for a in __known_primes[:16])
 
 __known_primes = [2, 3]
 __known_primes += [x for x in range(5, 1000, 2) if is_prime(x)]
