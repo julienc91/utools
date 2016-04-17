@@ -4,4 +4,8 @@ python:
   - 3.4
   - 3.5
   - pypy3
-script: python setup.py test
+install:
+  - pip install coveralls
+script: coverage run --source=utools setup.py test
+after_success:
+  coveralls
