@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from math import factorial
-
 """ Useful mathematical functions.
 """
+
+from math import factorial
 
 
 def is_prime(n):
@@ -60,7 +60,7 @@ def find_divisors(n):
         n (int): strictly positive integer
 
     Returns:
-        generator: a generator of all the positive divisors of n
+        A generator of all the positive divisors of n
 
     Raises:
         TypeError: if n is not an integer
@@ -91,7 +91,7 @@ def prime_generator(p_min=2, p_max=None):
             is None, there will not be any upper limit
 
     Returns:
-        generator: a generator of all the consecutive primes between p_min and p_max
+        A generator of all the consecutive primes between p_min and p_max
 
     Raises:
         TypeError: if p_min or p_max is not an integer
@@ -126,7 +126,7 @@ def sieve_of_eratosthenes(p_min=2, p_max=None):
             is None, there will not be any upper limit
 
     Returns:
-        generator: a generator of all the consecutive primes between p_min and p_max
+        A generator of all the consecutive primes between p_min and p_max
 
     Raises:
         TypeError: if p_min or p_max is not an integer
@@ -163,11 +163,11 @@ def binomial_coefficient(n, k):
         k (int): positive integer
 
     Returns:
-        int: the binomial coefficient indexed by n and k
+        The binomial coefficient indexed by n and k
 
     Raises:
-        TypeError: If either n or k is not an integer.
-        ValueError: If either n or k is negative, or if k is strictly greater than n.
+        TypeError: If either n or k is not an integer
+        ValueError: If either n or k is negative, or if k is strictly greater than n
 
     """
 
