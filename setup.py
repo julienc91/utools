@@ -13,6 +13,5 @@ setup(
     packages=find_packages(),
     install_requires=["typing"],
     setup_requires=["pytest-runner"],
-    tests_require=["pytest",
-                   "pytest-cov"]
+    tests_require=["pytest", "pytest-cov"]
 )

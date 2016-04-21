@@ -1,16 +1,28 @@
 # -*- coding: utf-8 -*-
 
 from math import factorial
-from typing import Optional, Iterator
+
+""" Useful mathematical functions.
+"""
 
 
-def is_prime(n: int) -> bool:
+def is_prime(n):
 
-    """
-    Miller-Rabin primality test.
-    This code was adapted from https://rosettacode.org/wiki/Miller%E2%80%93Rabin_primality_test#Python
-    :param n: integer
-    :return: True if n is probably a prime number, False if it is not
+    """ Miller-Rabin primality test. Keep in mind that this is not a deterministic algorithm: if it return True,
+    it means that n is probably a prime.
+
+    Args:
+        n (int): the integer to check
+
+    Returns:
+         True if n is probably a prime number, False if it is not
+
+    Raises:
+        TypeError: if n is not an integer
+
+    Note:
+        Adapted from https://rosettacode.org/wiki/Miller%E2%80%93Rabin_primality_test#Python
+
     """
 
     if not isinstance(n, int):
@@ -40,12 +52,20 @@ __known_primes = [2, 3]
 __known_primes += [x for x in range(5, 1000, 2) if is_prime(x)]
 
 
-def find_divisors(n: int) -> Iterator[int]:
+def find_divisors(n):
 
-    """
-    Find all the positive divisors of the given integer n.
-    :param n: strictly positive integer
-    :return: a generator of positive divisors of n
+    """ Find all the positive divisors of the given integer n.
+
+    Args:
+        n (int): strictly positive integer
+
+    Returns:
+        generator: a generator of all the positive divisors of n
+
+    Raises:
+        TypeError: if n is not an integer
+        ValueError: if n is negative
+
     """
 
     if not isinstance(n, int):
@@ -60,15 +80,22 @@ def find_divisors(n: int) -> Iterator[int]:
                 yield divisor
 
 
-def prime_generator(p_min: int=2, p_max: Optional[int]=None) -> Iterator[int]:
+def prime_generator(p_min=2, p_max=None):
 
-    """
-    Generator of prime numbers using the sieve of Eratosthenes.
-    :param p_min: prime numbers lower than p_min will not be in the resulting primes
-    :param p_max: the generator will stop when this value is reached, it means that there
-                  will be no prime bigger than this number in the resulting primes. If p_max
-                  is None, there will not be any upper limit
-    :return: a generator of consecutive primes between p_min and p_max
+    """ Generator of prime numbers using the sieve of Eratosthenes.
+
+    Args:
+        p_min (int): prime numbers lower than p_min will not be in the resulting primes
+        p_max (int): the generator will stop when this value is reached, it means that there
+            will be no prime bigger than this number in the resulting primes. If p_max
+            is None, there will not be any upper limit
+
+    Returns:
+        generator: a generator of all the consecutive primes between p_min and p_max
+
+    Raises:
+        TypeError: if p_min or p_max is not an integer
+
     """
 
     if not isinstance(p_min, int):
@@ -85,16 +112,25 @@ def prime_generator(p_min: int=2, p_max: Optional[int]=None) -> Iterator[int]:
         q += 2  # avoid losing time in checking primality of even numbers
 
 
-def sieve_of_eratosthenes(p_min: int=2, p_max: Optional[int]=None) -> Iterator:
+def sieve_of_eratosthenes(p_min=2, p_max=None):
 
-    """
-    Generator of prime numbers using the sieve of Eratosthenes.
-    Adapted from http://code.activestate.com/recipes/117119/
-    :param p_min: prime numbers lower than p_min will not be in the resulting primes
-    :param p_max: the generator will stop when this value is reached, it means that there
-                  will be no prime bigger than this number in the resulting primes. If p_max
-                  is None, there will not be any upper limit
-    :return: a generator of consecutive primes between p_min and p_max
+    """ Generator of prime numbers using the sieve of Eratosthenes.
+
+    Note:
+        Adapted from http://code.activestate.com/recipes/117119/
+
+    Args:
+        p_min (int): prime numbers lower than p_min will not be in the resulting primes
+        p_max (int): the generator will stop when this value is reached, it means that there
+            will be no prime bigger than this number in the resulting primes. If p_max
+            is None, there will not be any upper limit
+
+    Returns:
+        generator: a generator of all the consecutive primes between p_min and p_max
+
+    Raises:
+        TypeError: if p_min or p_max is not an integer
+
     """
 
     if not isinstance(p_min, int):
@@ -118,13 +154,21 @@ def sieve_of_eratosthenes(p_min: int=2, p_max: Optional[int]=None) -> Iterator:
         q += 1
 
 
-def binomial_coefficient(n: int, k: int) -> int:
+def binomial_coefficient(n, k):
 
-    """
-    Calculate the binomial coefficient indexed by n and k
-    :param n: positive integer
-    :param k: positive integer
-    :return: the binomial coefficient indexed by n and k
+    """ Calculate the binomial coefficient indexed by n and k.
+
+    Args:
+        n (int): positive integer
+        k (int): positive integer
+
+    Returns:
+        int: the binomial coefficient indexed by n and k
+
+    Raises:
+        TypeError: If either n or k is not an integer.
+        ValueError: If either n or k is negative, or if k is strictly greater than n.
+
     """
 
     if not isinstance(k, int) or not isinstance(n, int):
