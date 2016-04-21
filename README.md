@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/julienc91/utools.png)](https://travis-ci.org/julienc91/utools)
 [![Coverage Status](https://coveralls.io/repos/github/julienc91/utools/badge.svg?branch=master)](https://coveralls.io/github/julienc91/utools?branch=master)
+[![Documentation](https://readthedocs.org/projects/utools/badge/?version=latest)](http://utools.readthedocs.org/en/latest/)
 
 utools
 ======
