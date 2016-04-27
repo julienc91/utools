@@ -3,6 +3,22 @@
 Reference/API
 =============
 
+utools.dates module
+-------------------
+
+.. automodule:: utools.dates
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+utools.dicts module
+-------------------
+
+.. automodule:: utools.dicts
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 utools.files module
 -------------------
 

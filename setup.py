@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="utools",
-    version="1.1",
+    version="1.2",
     author="Julien Chaumont",
     author_email="utools@julienc.io",
     description="A set of useful functions to use for various purposes in any Python project",
