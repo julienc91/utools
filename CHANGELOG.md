@@ -1,3 +1,7 @@
+## 1.2.1 - 2016-05-11
+
+The `math.prime_generator` was not working correctly if the parameter `p_min` was an even integer greater than two.
+
 ## 1.2 - 2016-04-27
 
 New packages `dicts` and `dates`. `dates` provides an easy to use timer class to mesure the execution time

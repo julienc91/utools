@@ -8,7 +8,7 @@ import utools.files as ufiles
 
 def test_read_item():
     string_io = StringIO("1\n2\n3\nab\n\nfoo")
-    assert ufiles.read_item(string_io, bool) == True
+    assert ufiles.read_item(string_io, bool) is True
     assert ufiles.read_item(string_io, str) == "2"
     assert ufiles.read_item(string_io, int) == 3
     assert ufiles.read_item(string_io, list) == ["a", "b"]
