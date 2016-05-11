@@ -104,8 +104,11 @@ def prime_generator(p_min=2, p_max=None):
         raise TypeError("Expecting an integer")
 
     q = max(p_min, 3)
+    if q % 2 == 0:
+        q += 1
     if p_min <= 2 and (p_max is None or p_max >= 2):
         yield 2  # outside the while block to make the double increment optimization work
+
     while p_max is None or q <= p_max:
         if is_prime(q):
             yield q

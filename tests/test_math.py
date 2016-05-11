@@ -133,7 +133,7 @@ def test_prime_generator_with_bad_parameters(p_min, p_max, expected_exception):
 
 # we want to test that the two prime generators functions return the same primes
 @pytest.mark.parametrize("p_min, p_max,", [
-    (2, 4), (4, 2), (3, None), (2, None), (-1, 21)
+    (2, 4), (4, 2), (3, None), (2, None), (-1, 21), (20, 101), (20, None)
 ])
 def test_prime_generator_and_sieve_of_eratosthenes(p_min, p_max):
     count_max = 1000
