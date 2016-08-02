@@ -39,7 +39,7 @@ Others might be compatible but are not officially supported.
 Requirements
 ============
 
-Required libraries are automatically installed when installing ``utools`` (see :ref:install to learn more).
+Required libraries are automatically installed when installing ``utools`` (see :ref:`install` to learn more).
 In its current version, ``utools`` only requires additional libraries to run the tests and build the documentation:
 
 * pytest 2.9.1
