@@ -1,3 +1,7 @@
+## 1.3 - 2016-10-07
+
+New methods added to the `math` package: `math.eulers_totient` and `math.count_divisors`.
+
 ## 1.2.1 - 2016-05-11
 
 The `math.prime_generator` was not working correctly if the parameter `p_min` was an even integer greater than two.

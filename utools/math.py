@@ -4,6 +4,10 @@
 """
 
 from math import factorial
+try:
+    from math import gcd  # python 3.5
+except ImportError:
+    from fractions import gcd
 
 
 def is_prime(n):
@@ -78,6 +82,44 @@ def find_divisors(n):
             divisors = {i, n//i}
             for divisor in divisors:
                 yield divisor
+
+
+def count_divisors(n):
+
+    """ Count the number of divisors of an integer n
+
+    Args:
+        n (int): strictly positive integer
+
+    Returns:
+        The number of distinct divisors of n
+
+    Raises:
+        TypeError: if n is not an integer
+        ValueError: if n is negative
+
+    """
+
+    if not isinstance(n, int):
+        raise TypeError("Expecting a strictly positive integer")
+    if n <= 0:
+        raise ValueError("Expecting a strictly positive integer")
+
+    number_of_divisors = 1
+    remain = n
+
+    for p in prime_generator():
+        if p > n:
+            return number_of_divisors
+
+        exponent = 1
+        while remain % p == 0:
+            remain = remain // p
+            exponent += 1
+        number_of_divisors *= exponent
+
+        if remain == 1:
+            return number_of_divisors
 
 
 def prime_generator(p_min=2, p_max=None):
@@ -182,3 +224,34 @@ def binomial_coefficient(n, k):
         raise ValueError("Expecting positive integers")
 
     return factorial(n) // (factorial(k) * factorial(n - k))
+
+
+def eulers_totient(n):
+
+    """ Calculate the value of Euler's totient for a given integer
+
+    Args:
+        n (int): strictly positive integer
+
+    Returns:
+        The value of Euler's totient for n
+
+    Raises:
+        TypeError: If either n or k is not an integer
+        ValueError: If either n or k is negative, or if k is strictly greater than n
+
+    """
+
+    if not isinstance(n, int):
+        raise TypeError("Expecting a strictly positive integer")
+    if n <= 0:
+        raise ValueError("Expecting a strictly positive integer")
+
+    if n == 1:
+        return 1
+
+    result = 0
+    for i in range(1, n):
+        if gcd(i, n) == 1:
+            result += 1
+    return result

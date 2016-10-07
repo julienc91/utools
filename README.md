@@ -8,8 +8,8 @@ utools
 A set of useful functions to use for various purposes in any Python project.
 
 * Author: Julien CHAUMONT (https://julienc.io)
-* Version: 1.2.1
-* Date: 2016-05-11
+* Version: 1.3
+* Date: 2016-10-07
 * Licence: MIT
 * Url: http://github.com/julienc91/utools
 

@@ -6,7 +6,6 @@ import utools.math as umath
 
 
 # --- utools.math.is_prime ---
-
 @pytest.mark.parametrize("n, expected_result", [
     (-1, False), (0, False), (1, False), (2, True), (3, True),
     (4, False), (5, True), (17, True), (102, False),
@@ -26,7 +25,6 @@ def test_is_prime_with_bad_parameters(n, expected_exception):
 
 
 # --- utools.math.binomial_coefficient ---
-
 @pytest.mark.parametrize("n, k, expected_result", [
     (0, 0, 1), (1, 0, 1), (1, 1, 1), (2, 1, 2), (3, 2, 3),
     (536, 12, 1036996651419873917836700)
@@ -46,7 +44,6 @@ def test_binomial_coefficient_with_bad_parameters(n, k, expected_exception):
 
 
 # --- utools.math.find_divisors ---
-
 @pytest.mark.parametrize("n, expected_result", [
     (1, {1}), (2, {1, 2}), (4, {1, 2, 4}), (12, {1, 2, 3, 4, 6, 12}),
     (1442, {1, 2, 7, 14, 103, 206, 721, 1442}), (2**19 - 1, {1, 2**19 - 1})
@@ -67,6 +64,22 @@ def test_find_divisors_with_bad_parameters(n, expected_exception):
     generator = umath.find_divisors(n)
     with pytest.raises(expected_exception):
         next(generator)
+
+
+# --- utools.math.count_divisors ---
+@pytest.mark.parametrize("n", [
+    1, 2, 3, 12, 365, 13484, 180180, 1204943
+])
+def test_count_divisors(n):
+    assert umath.count_divisors(n) == len(list(umath.find_divisors(n)))
+
+
+@pytest.mark.parametrize("n, expected_exception", [
+    (None, TypeError), ("1", TypeError), (5.0, TypeError), (-3, ValueError)
+])
+def test_count_divisors_with_bad_parameters(n, expected_exception):
+    with pytest.raises(expected_exception):
+        umath.count_divisors(n)
 
 
 # --- utools.math.sieve_of_eratosthenes ---
@@ -144,3 +157,19 @@ def test_prime_generator_and_sieve_of_eratosthenes(p_min, p_max):
         count += 1
         if count == count_max:
             break
+
+
+# --- utools.math.eulers_totient ---
+@pytest.mark.parametrize("n, expected_result", [
+    (1, 1), (2, 1), (5, 4), (8, 4), (40, 16), (57, 36), (72, 24), (98, 42)
+])
+def test_eulers_totient(n, expected_result):
+    assert umath.eulers_totient(n) == expected_result
+
+
+@pytest.mark.parametrize("n, expected_exception", [
+    (None, TypeError), ("1", TypeError), (5.0, TypeError), (-3, ValueError)
+])
+def test_eulers_totient_with_bad_parameters(n, expected_exception):
+    with pytest.raises(expected_exception):
+        umath.eulers_totient(n)
